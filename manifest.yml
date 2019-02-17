@@ -1,0 +1,5 @@
+applications:
+- name: BootRestClientTest
+  memory: 1024M
+  routes:
+  - route: bootrestclienttest.cfapps.io

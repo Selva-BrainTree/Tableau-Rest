@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello CORS</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+	$(document).ready(
+			function() {
+				$.ajax(
+						{
+							url : "http://localhost:8090/myrestapi",
+							beforeSend : function(jqxhr) {
+								jqxhr.setRequestHeader("Authorization", "Basic "
+										+ btoa(user + ":" + userPass));
+							},
+						}).then(function(data, status, jqxhr) {
+					$('.key').append(data.key);
+					console.log(jqxhr);
+				});
+			});
+</script>
+</head>
+
+<body>
+	<div>
+		<p class="key">The ID is</p>
+	</div>
+</body>
+</html>
